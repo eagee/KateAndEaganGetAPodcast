@@ -14,11 +14,36 @@ public class JointTracker : MonoBehaviour
     public bool useZValue = false;
 
     private KinectJointFilter m_jointFilter;
+    private HandState m_leftHandState;
+    private HandState m_rightHandState;
+
 
     void Awake()
     {
         m_jointFilter = new KinectJointFilter();
         m_jointFilter.Init(0.55f, 0.25f, 2.0f, 0.30f, 1.25f);
+    }
+
+    void Start()
+    {
+        m_leftHandState = HandState.Open;
+        m_rightHandState = HandState.Open;
+    }
+
+    public bool leftHandClosed
+    {
+        get
+        {
+            return m_leftHandState == HandState.Closed;
+        }
+    }
+
+    public bool rightHandClosed
+    {
+        get
+        {
+            return m_rightHandState == HandState.Closed;
+        }
     }
 
     // Get body data from the body manager and track the joint for the active body
@@ -43,6 +68,9 @@ public class JointTracker : MonoBehaviour
             m_jointFilter.UpdateFilter(data[BodyNumber]);
             var Joints = m_jointFilter.GetFilteredJoints();
 
+            m_leftHandState = data[BodyNumber].HandLeftState;
+            m_rightHandState = data[BodyNumber].HandRightState;
+
             // Grab the mid spine position, we'll use this to make all other joint movement relative to the spine (this way we can limit the Y position of the character)
             var midSpinePosition = Joints[(int)JointType.SpineMid];
             var jointPos = Joints[(int)JointToUse];
@@ -57,15 +85,7 @@ public class JointTracker : MonoBehaviour
         }
         else
         {
-            //GetComponent<Rigidbody>().isKinematic = false;
-            //var pos = this.transform.position;
-            //if (pos.y <= -10f)
-            //{
-            //    pos.x = -10;
-            //    pos.y = -10f;
-            //    this.transform.position = pos;
-            //}
-
+            // Hide the object by moving it far away from the camera.
             this.transform.position = new Vector3(100.0f, 100.0f, 100.0f);
         }
     }
