@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class FadeSceneScript : MonoBehaviour {
-    public float FadeSpeed = 2f;
+    /*public float FadeSpeed = 2f;
 
     private bool m_FadeIn = false;
     private bool m_Active = true;
@@ -73,5 +73,5 @@ public class FadeSceneScript : MonoBehaviour {
 
         GetComponent<Renderer>().material.color = currentColor;
     }
-    
+    */
 }
