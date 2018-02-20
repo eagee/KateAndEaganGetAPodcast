@@ -7,6 +7,7 @@ public class DrawArm : MonoBehaviour
 {
     public Transform transformFrom;
     public int OrderInLayer;
+    //public string SortingLayer = "Default";
     public float ZOffset = 0f;
     public bool isBicep = false;
 
@@ -22,6 +23,7 @@ public class DrawArm : MonoBehaviour
         if(isBicep)
         {
             this.GetComponent<LineRenderer>().sortingOrder = OrderInLayer;
+            //this.GetComponent<LineRenderer>().sortingLayerName = SortingLayer;
             this.GetComponent<LineRenderer>().SetPosition(0, transformFrom.position);
             Vector3 endOfSleeve = Vector3.Lerp(transformFrom.position, this.transform.position, 0.75f);
             endOfSleeve.z = transformFrom.position.z;
@@ -31,6 +33,7 @@ public class DrawArm : MonoBehaviour
         else
         {
             this.GetComponent<LineRenderer>().sortingOrder = OrderInLayer;
+            //this.GetComponent<LineRenderer>().sortingLayerName = SortingLayer;
             this.GetComponent<LineRenderer>().SetPosition(0, transformFrom.position);
             Vector3 toPosition = this.transform.position;
             toPosition.z += ZOffset;

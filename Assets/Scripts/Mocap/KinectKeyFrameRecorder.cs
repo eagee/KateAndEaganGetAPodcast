@@ -6,28 +6,17 @@ using System.IO;
 
 /// KinectKeyFrameRecorder records positional information from JointTracker child objects to json
 /// which can be used later to play back the recorded animation.
-public class KinectKeyFrameRecorder : MonoBehaviour {
-    public string AnimationName = "";
-    public string AnimationDirectory = "Q:\\TeamSheeps\\KateAndEaganGetAPodcast\\KateAndEaganGetAPodcast\\Assets\\MocapRecordings";
+public class KinectKeyFrameRecorder : KinectKeyFrameAnimation
+{
     public float FrameTime = 1.0f / 8.0f;
-    private Dictionary<JointType, GameObject> m_jointObjects;
-    private KeyframeData m_keyframeData;
     public bool IsRecording = false;
     private bool m_LastRecordingState = false;
-    private float m_frameTimer;
 
     // Use this for initialization
     void Start()
     {
+        m_keyframeData.FrameSpeed = FrameTime;
         IsRecording = false;
-        m_jointObjects = new Dictionary<JointType, GameObject>();
-        m_keyframeData = new KeyframeData();
-        m_keyframeData.Name = "TestAnimation";
-        var joints = this.GetComponentsInChildren<JointTracker>(false);
-        foreach (JointTracker j in joints)
-        {
-            m_jointObjects[j.JointToUse] = j.gameObject;
-        }
     }
 
     // Update is called once per frame
@@ -53,27 +42,27 @@ public class KinectKeyFrameRecorder : MonoBehaviour {
     {
         Vec3ListWrapper newKeyFrame = new Vec3ListWrapper();
 
-        // Iterate through each joint and output code to console with initialized vector3 list
+        // Iterate through each joint and save the position of each joint to the specified keyframe.
         foreach (KeyValuePair<JointType, GameObject> jointData in m_jointObjects)
         {
             Vec3Wrapper vec3 = new Vec3Wrapper();
             vec3.vector = jointData.Value.transform.position;
+            vec3.jointType = jointData.Key;
             newKeyFrame.vec3List.Add(vec3);
         }
 
         m_keyframeData.KeyFrames.Add(newKeyFrame);
-        Debug.Log("Added new keyframe!");
     }
 
     private void SaveKeyframesToJson()
     {
-        string filePath = AnimationDirectory + AnimationName + ".json";
-        Debug.Log("Writing keyframe file to: " + filePath);
+        string filePath = Application.dataPath + AnimationDirectory + AnimationName + ".json";
+        Debug.Log("Writing key frame file to: " + filePath);
         string json = JsonUtility.ToJson(m_keyframeData);
 
         while(File.Exists(filePath))
         {
-            filePath = AnimationDirectory + AnimationName + Random.Range(0, 10000).ToString() + ".json";
+            filePath = Application.dataPath + AnimationDirectory + AnimationName + Random.Range(0, 10000).ToString() + ".json";
         }
 
         File.WriteAllText(filePath, json);

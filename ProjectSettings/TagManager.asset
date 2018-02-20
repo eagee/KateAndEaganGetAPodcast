@@ -39,6 +39,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3491750547
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: AnimatedActor1
+    uniqueID: 450173859
+    locked: 0
+  - name: AnimatedActor2
+    uniqueID: 2660168019
+    locked: 0
+  - name: KinectPlayer
+    uniqueID: 752026317
+    locked: 0
+  - name: Foreground
+    uniqueID: 4227188701
     locked: 0
