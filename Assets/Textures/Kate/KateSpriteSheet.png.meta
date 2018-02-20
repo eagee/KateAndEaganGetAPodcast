@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7e0ab49618c25b0429312c762431f8bf
-timeCreated: 1519062112
+timeCreated: 1519150283
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -14,6 +14,7 @@ TextureImporter:
     21300014: KateSpriteSheet_7
     21300016: KateSpriteSheet_8
     21300018: KateSpriteSheet_9
+    21300020: KateSpriteSheet_10
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -225,6 +226,20 @@ TextureImporter:
         height: 378
       alignment: 7
       pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KateSpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 18
+        width: 414
+        height: 334
+      alignment: 9
+      pivot: {x: 0.5032155, y: 0.9936561}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
