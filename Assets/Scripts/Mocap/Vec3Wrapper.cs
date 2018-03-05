@@ -7,5 +7,6 @@ using Windows.Kinect;
 public class Vec3Wrapper
 {
     public JointType jointType;
+    public HandState handState;
     public Vector3 vector = new Vector3();
 }

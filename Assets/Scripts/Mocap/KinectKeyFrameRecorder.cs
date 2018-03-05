@@ -48,6 +48,7 @@ public class KinectKeyFrameRecorder : KinectKeyFrameAnimation
             Vec3Wrapper vec3 = new Vec3Wrapper();
             vec3.vector = jointData.Value.transform.position;
             vec3.jointType = jointData.Key;
+            vec3.handState = jointData.Value.GetComponent<JointTracker>().handState;
             newKeyFrame.vec3List.Add(vec3);
         }
 

@@ -10,6 +10,8 @@ public class KinectKeyFramePlayer : KinectKeyFrameAnimation {
     public string SortingLayer = "Default";
     private bool m_isActive = false;
     private int m_keyFrameIndex = 0;
+    public float xOffset = 0f;
+    public float yOffset = 0f;
 
     void Start()
     {
@@ -63,8 +65,11 @@ public class KinectKeyFramePlayer : KinectKeyFrameAnimation {
             {
                 // If we want to smooth our animations.
                 Vector3 position = m_jointObjects[jointData.jointType].gameObject.transform.position;
+                position.x = position.x + xOffset;
+                position.y = position.y + yOffset;
                 position = Vector3.Lerp(position, jointData.vector, m_keyframeData.FrameSpeed);
                 m_jointObjects[jointData.jointType].gameObject.transform.position = position;
+                m_jointObjects[jointData.jointType].GetComponent<KeyframeJoint>().handState = jointData.handState;
                 
                 // If we simply want to jump to the keyframe animation...
                 // m_jointObjects[jointData.jointType].gameObject.transform.position = jointData.vector;

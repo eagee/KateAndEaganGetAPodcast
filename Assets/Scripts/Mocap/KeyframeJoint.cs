@@ -10,6 +10,13 @@ using UnityEngine;
 public class KeyframeJoint : MonoBehaviour {
 
     public JointType JointToUse;
+    private HandState m_handState;
+
+    public HandState handState
+    {
+        get { return m_handState; }
+        set { m_handState = value; }
+    }
 
     void Start () {
         JointTracker activeTracker = GetComponent<JointTracker>();
@@ -17,5 +24,6 @@ public class KeyframeJoint : MonoBehaviour {
         {
             JointToUse = activeTracker.JointToUse;
         }
+        m_handState = HandState.Open;
 	}
 }

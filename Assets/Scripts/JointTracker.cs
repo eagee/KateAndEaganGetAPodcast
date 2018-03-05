@@ -28,6 +28,25 @@ public class JointTracker : MonoBehaviour
         m_rightHandState = HandState.Open;
     }
 
+    public HandState handState
+    {
+        get
+        {
+            if(JointToUse == JointType.HandLeft)
+            {
+                return m_leftHandState;
+            }
+            else if(JointToUse == JointType.HandRight)
+            {
+                return m_rightHandState;
+            }
+            else
+            {
+                return HandState.Open;
+            }
+        }
+    }
+
     public bool leftHandClosed
     {
         get
