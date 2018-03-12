@@ -11,6 +11,7 @@ public class KeyframeJoint : MonoBehaviour {
 
     public JointType JointToUse;
     private HandState m_handState;
+    private JointTracker m_activeTracker;
 
     public HandState handState
     {
@@ -19,11 +20,18 @@ public class KeyframeJoint : MonoBehaviour {
     }
 
     void Start () {
-        JointTracker activeTracker = GetComponent<JointTracker>();
-        if(activeTracker != null)
-        {
-            JointToUse = activeTracker.JointToUse;
-        }
+        m_activeTracker = GetComponent<JointTracker>();
         m_handState = HandState.Open;
 	}
+
+    void Update() {
+        // This only works for an active kinect model, otherwise handset is specified by the playback script.
+        if (m_activeTracker != null)
+        {
+            if (m_activeTracker.JointToUse == JointToUse)
+            {
+                m_handState = m_activeTracker.handState;
+            }
+        }
+    }
 }
