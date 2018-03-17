@@ -154,77 +154,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114199480287648498, guid: c5ee7d1d9946db24fa8979d118e75c7c,
         type: 2}
-      propertyPath: pointA
-      value: 
-      objectReference: {fileID: 1719062520}
-    - target: {fileID: 120673247300550222, guid: c5ee7d1d9946db24fa8979d118e75c7c,
-        type: 2}
-      propertyPath: m_Positions.Array.data[0].x
-      value: 6.8387666
-      objectReference: {fileID: 0}
-    - target: {fileID: 120673247300550222, guid: c5ee7d1d9946db24fa8979d118e75c7c,
-        type: 2}
-      propertyPath: m_Positions.Array.data[0].y
-      value: -1.7208056
-      objectReference: {fileID: 0}
-    - target: {fileID: 120673247300550222, guid: c5ee7d1d9946db24fa8979d118e75c7c,
-        type: 2}
-      propertyPath: m_Positions.Array.data[1].x
-      value: 8.06756
-      objectReference: {fileID: 0}
-    - target: {fileID: 120673247300550222, guid: c5ee7d1d9946db24fa8979d118e75c7c,
-        type: 2}
-      propertyPath: m_Positions.Array.data[1].y
-      value: -2.837885
-      objectReference: {fileID: 0}
-    - target: {fileID: 1668052670204646, guid: c5ee7d1d9946db24fa8979d118e75c7c, type: 2}
-      propertyPath: m_Name
-      value: PaddleBall
-      objectReference: {fileID: 0}
-    - target: {fileID: 4937534012365042, guid: c5ee7d1d9946db24fa8979d118e75c7c, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -82.388
-      objectReference: {fileID: 0}
-    - target: {fileID: 4176144712178732, guid: c5ee7d1d9946db24fa8979d118e75c7c, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.97
-      objectReference: {fileID: 0}
-    - target: {fileID: 4176144712178732, guid: c5ee7d1d9946db24fa8979d118e75c7c, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -1.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 114199480287648498, guid: c5ee7d1d9946db24fa8979d118e75c7c,
-        type: 2}
-      propertyPath: ownerObject
-      value: 
-      objectReference: {fileID: 1719062519}
-    - target: {fileID: 54399964536351906, guid: c5ee7d1d9946db24fa8979d118e75c7c,
-        type: 2}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 54399964536351906, guid: c5ee7d1d9946db24fa8979d118e75c7c,
-        type: 2}
-      propertyPath: m_UseGravity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 54399964536351906, guid: c5ee7d1d9946db24fa8979d118e75c7c,
-        type: 2}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 120673247300550222, guid: c5ee7d1d9946db24fa8979d118e75c7c,
-        type: 2}
-      propertyPath: m_Positions.Array.data[0].z
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 120673247300550222, guid: c5ee7d1d9946db24fa8979d118e75c7c,
-        type: 2}
-      propertyPath: m_Positions.Array.data[1].z
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114199480287648498, guid: c5ee7d1d9946db24fa8979d118e75c7c,
-        type: 2}
       propertyPath: rightHand
       value: 
       objectReference: {fileID: 1719062519}
@@ -233,6 +162,16 @@ Prefab:
       propertyPath: leftHand
       value: 
       objectReference: {fileID: 2040454455}
+    - target: {fileID: 54399964536351906, guid: c5ee7d1d9946db24fa8979d118e75c7c,
+        type: 2}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 54399964536351906, guid: c5ee7d1d9946db24fa8979d118e75c7c,
+        type: 2}
+      propertyPath: m_Drag
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5ee7d1d9946db24fa8979d118e75c7c, type: 2}
   m_IsPrefabParent: 0
@@ -1702,6 +1641,7 @@ MonoBehaviour:
   AnimationDirectory: /StreamingAssets/Mocap/
   FrameTime: 0.16
   IsRecording: 0
+  delayBeforeRecording: 10
 --- !u!4 &267069866
 Transform:
   m_ObjectHideFlags: 0

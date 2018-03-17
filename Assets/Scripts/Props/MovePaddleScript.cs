@@ -6,6 +6,7 @@ public class MovePaddleScript : MonoBehaviour {
 
     public GameObject rightHand;
     public GameObject leftHand;
+    public PhysicMaterial BouncyMaterial;
     private float m_stateChangeTimer = 0f;
     private Windows.Kinect.HandState m_activeHandState;
     private KeyframeJoint m_jointL;
@@ -65,11 +66,17 @@ public class MovePaddleScript : MonoBehaviour {
         {
             if(leftHandInRange)
             {
+                GetComponent<Collider>().material = BouncyMaterial;
                 MovePaddleWithTarget(leftHand, -90f);
             }
             else if (rightHandInRange)
             {
+                GetComponent<Collider>().material = BouncyMaterial;
                 MovePaddleWithTarget(rightHand, -90f);
+            }
+            else
+            {
+                GetComponent<Collider>().material = null;
             }
         }
         else

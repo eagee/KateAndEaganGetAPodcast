@@ -11,6 +11,7 @@ public class KinectKeyFrameRecorder : KinectKeyFrameAnimation
     public float FrameTime = 1.0f / 8.0f;
     public bool IsRecording = false;
     private bool m_LastRecordingState = false;
+    public float delayBeforeRecording = 10f;
 
     // Use this for initialization
     void Start()
@@ -29,9 +30,16 @@ public class KinectKeyFrameRecorder : KinectKeyFrameAnimation
             {
                 SaveKeyframesToJson();
             }
-            m_LastRecordingState = IsRecording;
+            else if (m_LastRecordingState == false && IsRecording)
+            {
+                if (delayBeforeRecording > 0f)
+                    delayBeforeRecording -= Time.deltaTime;
+                else
+                    m_LastRecordingState = true;
+            }
         }
-        if (IsRecording && m_frameTimer >= FrameTime)
+
+        if (m_LastRecordingState && m_frameTimer >= FrameTime)
         {
             m_frameTimer = 0;
             RecordKeyframe();
