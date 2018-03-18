@@ -162,16 +162,6 @@ Prefab:
       propertyPath: leftHand
       value: 
       objectReference: {fileID: 2040454455}
-    - target: {fileID: 54399964536351906, guid: c5ee7d1d9946db24fa8979d118e75c7c,
-        type: 2}
-      propertyPath: m_Mass
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 54399964536351906, guid: c5ee7d1d9946db24fa8979d118e75c7c,
-        type: 2}
-      propertyPath: m_Drag
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5ee7d1d9946db24fa8979d118e75c7c, type: 2}
   m_IsPrefabParent: 0
@@ -1624,7 +1614,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &267069865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1637,7 +1627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b134454115865854698f60c19124ea7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimationName: TestAnimation
+  AnimationName: KateAnimation
   AnimationDirectory: /StreamingAssets/Mocap/
   FrameTime: 0.16
   IsRecording: 0
@@ -3225,19 +3215,19 @@ MonoBehaviour:
   spriteRenderer: {fileID: 691663742}
   prevSpriteRenderer: {fileID: 691663742}
   getSpriteRenderer: 0
-  audioSrc: {fileID: 1999830323}
-  audioClip: {fileID: 8300000, guid: 13712e839033ebc4fa273a98c76a76e7, type: 3}
+  audioSrc: {fileID: 1794619156}
+  audioClip: {fileID: 8300000, guid: 2f53b7e710ba3e9428a9ec8069715d7f, type: 3}
   sayRestSprite: {fileID: 21300000, guid: 8819af8cbb98c80499d9e74a64495326, type: 3}
   saySmallSprite: {fileID: 21300000, guid: 354acb7c4b43c3847af560f0c9459d0a, type: 3}
   sayMediumSprite: {fileID: 21300000, guid: 425d350cfddd4d344b9cbfcb72af8023, type: 3}
   sayLargeSprite: {fileID: 21300000, guid: eeaa8eed586b59943a02a58f2bc100aa, type: 3}
-  saySmallTrigger: 0.00059
-  sayMediumTrigger: 0.00231
-  sayLargeTrigger: 0.00485
+  saySmallTrigger: 0.0001
+  sayMediumTrigger: 0.00115
+  sayLargeTrigger: 0.00313
   audioUpdateDelay: 0.036
   isTalking: 0
   prevIsTalking: 0
-  broadcast: 1
+  broadcast: 0
   broadcastReceiversCount: 0
   expandBroadcast: 1
   broadcastReceivers: []
@@ -4560,7 +4550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &964799393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4573,12 +4563,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a6f94698d735f4ab892e0863a80ac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimationName: TestAnimation
+  AnimationName: KateAnimation
   AnimationDirectory: /StreamingAssets/Mocap/
   Loop: 1
   PlayOnAwake: 1
   SortingLayer: AnimatedActor1
-  xOffset: -0.25
+  xOffset: 1.94
   yOffset: -0.49
 --- !u!4 &964799394
 Transform:
@@ -5708,10 +5698,70 @@ Prefab:
     - target: {fileID: 114471556411324756, guid: db94848e8afb7e241869bdb9403ef1e3,
         type: 2}
       propertyPath: xOffset
-      value: 3
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 1030805506219176, guid: db94848e8afb7e241869bdb9403ef1e3, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114471556411324756, guid: db94848e8afb7e241869bdb9403ef1e3,
+        type: 2}
+      propertyPath: AnimationName
+      value: EaganAnimation
+      objectReference: {fileID: 0}
+    - target: {fileID: 114471556411324756, guid: db94848e8afb7e241869bdb9403ef1e3,
+        type: 2}
+      propertyPath: yOffset
+      value: -0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 114213246379934032, guid: db94848e8afb7e241869bdb9403ef1e3,
+        type: 2}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 15d21eb4c7960d045bf00783dc773f4c, type: 3}
+    - target: {fileID: 114213246379934032, guid: db94848e8afb7e241869bdb9403ef1e3,
+        type: 2}
+      propertyPath: saySmallTrigger
+      value: 0.0002
+      objectReference: {fileID: 0}
+    - target: {fileID: 114213246379934032, guid: db94848e8afb7e241869bdb9403ef1e3,
+        type: 2}
+      propertyPath: sayMediumTrigger
+      value: 0.00155
+      objectReference: {fileID: 0}
+    - target: {fileID: 114213246379934032, guid: db94848e8afb7e241869bdb9403ef1e3,
+        type: 2}
+      propertyPath: sayLargeTrigger
+      value: 0.00323
+      objectReference: {fileID: 0}
+    - target: {fileID: 114213246379934032, guid: db94848e8afb7e241869bdb9403ef1e3,
+        type: 2}
+      propertyPath: isTalking
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114213246379934032, guid: db94848e8afb7e241869bdb9403ef1e3,
+        type: 2}
+      propertyPath: prevIsTalking
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114213246379934032, guid: db94848e8afb7e241869bdb9403ef1e3,
+        type: 2}
+      propertyPath: average
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114213246379934032, guid: db94848e8afb7e241869bdb9403ef1e3,
+        type: 2}
+      propertyPath: say
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114213246379934032, guid: db94848e8afb7e241869bdb9403ef1e3,
+        type: 2}
+      propertyPath: prevAudioUpdateDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114213246379934032, guid: db94848e8afb7e241869bdb9403ef1e3,
+        type: 2}
+      propertyPath: broadcast
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6205,6 +6255,7 @@ Transform:
   m_LocalScale: {x: -4.7505093, y: 87.009895, z: 1}
   m_Children:
   - {fileID: 1999830324}
+  - {fileID: 1794619155}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8225,6 +8276,115 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1794619154
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1794619155}
+  - component: {fileID: 1794619156}
+  m_Layer: 0
+  m_Name: KateAudioSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1794619155
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1794619154}
+  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 0.99999994, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1403967282}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1794619156
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1794619154}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2f53b7e710ba3e9428a9ec8069715d7f, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1001 &1832646797
 Prefab:
   m_ObjectHideFlags: 0
@@ -9003,6 +9163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1999830324}
   - component: {fileID: 1999830323}
+  - component: {fileID: 1999830325}
   m_Layer: 0
   m_Name: EaganAudioSource
   m_TagString: Untagged
@@ -9016,10 +9177,10 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1999830322}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 13712e839033ebc4fa273a98c76a76e7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 15d21eb4c7960d045bf00783dc773f4c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -9103,6 +9264,19 @@ Transform:
   m_Father: {fileID: 1403967282}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1999830325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1999830322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55aa357bdbb5df643991ae4140f915b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  master: {fileID: 1999830323}
+  slave: {fileID: 1794619156}
 --- !u!1 &2009062691
 GameObject:
   m_ObjectHideFlags: 0
@@ -9187,7 +9361,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2009062691}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.53, y: -1.1, z: -1}
+  m_LocalPosition: {x: 20.12, y: -1.36, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 239375741}

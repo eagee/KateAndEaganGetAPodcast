@@ -29,6 +29,7 @@ public class KinectKeyFrameRecorder : KinectKeyFrameAnimation
             if(m_LastRecordingState == true && IsRecording == false)
             {
                 SaveKeyframesToJson();
+                m_LastRecordingState = false;
             }
             else if (m_LastRecordingState == false && IsRecording)
             {
