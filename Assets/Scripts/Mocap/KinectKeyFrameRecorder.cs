@@ -34,9 +34,17 @@ public class KinectKeyFrameRecorder : KinectKeyFrameAnimation
             else if (m_LastRecordingState == false && IsRecording)
             {
                 if (delayBeforeRecording > 0f)
+                { 
                     delayBeforeRecording -= Time.deltaTime;
+                    if(delayBeforeRecording <= 0f)
+                    {
+                        BroadcastMessage("RecordingStarted");
+                    }
+                }
                 else
+                { 
                     m_LastRecordingState = true;
+                }
             }
         }
 

@@ -19,11 +19,11 @@ public class KinectKeyFramePlayer : KinectKeyFrameAnimation {
         LoadAnimation();
         if (PlayOnAwake)
         {
-            m_isActive = true;
+            PlayAnimation();
         }
         else
         {
-            m_isActive = false;
+            StopAnimation();
         }
     }
 
@@ -42,9 +42,14 @@ public class KinectKeyFramePlayer : KinectKeyFrameAnimation {
         }
     }
 
-    void PlayAnimation()
+    public void PlayAnimation()
     {
         m_isActive = true;
+    }
+
+    public void StopAnimation()
+    {
+        m_isActive = false;
     }
 
     private void LoadAnimation()
