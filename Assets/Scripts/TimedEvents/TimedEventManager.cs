@@ -7,7 +7,7 @@ using UnityEngine;
 [System.Serializable]
 public class TimedEventManager : MonoBehaviour {
     public List<TimedEventEntry> EventEntries;
-    public List<GameObject> Observers;
+    public List<TimedEventObserver> Observers;
     private float m_EventTimer;
     
     void Update()
@@ -20,19 +20,13 @@ public class TimedEventManager : MonoBehaviour {
             if(m_EventTimer > entry.TimeOffset && entry.Triggered == false)
             {
                 entry.Triggered = true;
-                foreach(var observer in Observers)
+                if (entry.TypeOfEvent == TimedEventType.LookAtObject)
                 {
-                    if(observer.name == entry.ObserverName)
-                    { 
-                        if(entry.TypeOfEvent == TimedEventType.LookAtObject)
-                        {
-                            observer.SendMessage("LookAtObject", entry.TargetObject);
-                        }
-                        else if (entry.TypeOfEvent == TimedEventType.LookRandom)
-                        {
-                            observer.SendMessage("LookRandom");
-                        }
-                    }
+                    entry.Observer.SendMessage("LookAtObject", entry.TargetObject);
+                }
+                else if (entry.TypeOfEvent == TimedEventType.LookRandom)
+                {
+                    entry.Observer.SendMessage("LookRandom");
                 }
             }
         }

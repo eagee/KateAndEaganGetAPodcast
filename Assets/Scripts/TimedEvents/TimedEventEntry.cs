@@ -4,15 +4,15 @@ using UnityEngine;
 
 [System.Serializable]
 public class TimedEventEntry {
-    public string ObserverName;
+    public TimedEventObserver Observer;
     public float TimeOffset;
     public GameObject TargetObject;
     public TimedEventType TypeOfEvent;
     public bool Triggered;
 
-    public TimedEventEntry(string observerName, float timeOffset, GameObject targetObject, TimedEventType typeOfEvent, bool triggered)
+    public TimedEventEntry(TimedEventObserver observer, float timeOffset, GameObject targetObject, TimedEventType typeOfEvent, bool triggered)
     {
-        this.ObserverName = observerName;
+        this.Observer = observer;
         this.TimeOffset = timeOffset;
         this.TargetObject = targetObject;
         this.TypeOfEvent = typeOfEvent;

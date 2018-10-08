@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ITimedLookEvents {
+public interface ITimedEventObserver
+{
     void LookAtObject(GameObject targetObject);
     void LookRandom();
 }
