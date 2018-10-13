@@ -6,5 +6,8 @@ using UnityEngine;
 public enum TimedEventType
 {
     LookAtObject,
-    LookRandom
+    LookRandom,
+    EmoteNormal,
+    EmoteAmusement,
+    EmoteNonplussed
 }

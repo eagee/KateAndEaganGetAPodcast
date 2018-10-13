@@ -19,60 +19,77 @@ public class TimedEventManagerEditor : Editor
                 serializedObject.FindProperty("EventEntries"),
                 true, true, true, true);
 
+
+        m_events.drawElementBackgroundCallback = (Rect rect, int index, bool isActive, bool isFocused) =>
+        {
+            /// Set background color based on name of observer object (todo: refactor this so it's not so ugly, and perhaps configurable from editor)
+            var element = m_events.serializedProperty.GetArrayElementAtIndex(index);
+            TimedEventEntry bgEntry = GetParent(element.FindPropertyRelative("Observer")) as TimedEventEntry;
+            if (bgEntry != null && bgEntry.Observer != null)
+            {
+                if (bgEntry.Observer.ObserverName.Contains("Eagan"))
+                {
+                    EditorGUI.DrawRect(rect, Color.white);
+                }
+                else if (bgEntry.Observer.ObserverName.Contains("Kate"))
+                {
+                    EditorGUI.DrawRect(rect, Color.gray);
+                }
+                else
+                {
+                    EditorGUI.DrawRect(rect, Color.clear);
+                }
+            }
+        };
+
         m_events.drawElementCallback = (Rect rect, int index, bool isActive, bool isFocused) =>
         {
+            int spacing = 2;
             var element = m_events.serializedProperty.GetArrayElementAtIndex(index);
             rect.y += 2;
 
-            var totalWidth = rect.width / 5;
+            float standardWidth = rect.width / 6f;
+
+            float widthSoFar = rect.x;
 
             EditorGUI.PropertyField(
-                new Rect(rect.x, rect.y, totalWidth, EditorGUIUtility.singleLineHeight),
+                new Rect(rect.x, rect.y, standardWidth/2f, EditorGUIUtility.singleLineHeight),
                 element.FindPropertyRelative("TimeOffset"), GUIContent.none);
 
+            widthSoFar += (standardWidth / 2f) + spacing;
+
             EditorGUI.PropertyField(
-                new Rect(rect.x + totalWidth, rect.y, totalWidth, EditorGUIUtility.singleLineHeight),
+                new Rect(widthSoFar, rect.y, standardWidth*.75f, EditorGUIUtility.singleLineHeight),
                 element.FindPropertyRelative("Observer"), GUIContent.none);
 
-            if (element.FindPropertyRelative("Observer") != null)
+            widthSoFar += (standardWidth * .75f) + spacing;
+
+            TimedEventEntry entry = GetParent(element.FindPropertyRelative("Observer")) as TimedEventEntry;
+
+            if (entry != null && entry.Observer != null)
             {
-                object propObject = GetParent(element.FindPropertyRelative("Observer"));
-                TimedEventEntry entry = propObject as TimedEventEntry;
-                EditorGUI.LabelField(
-                new Rect(rect.x + totalWidth * 2, rect.y, totalWidth, EditorGUIUtility.singleLineHeight),
-                entry.Observer.ObserverName);
-
-                //EditorGUI.PropertyField(
-                //    new Rect(rect.x + totalWidth * 2, rect.y, totalWidth, EditorGUIUtility.singleLineHeight),
-                //    element.FindPropertyRelative("Observer").FindPropertyRelative("ObserverName"), GUIContent.none);
-                //var myClassProps = element.FindPropertyRelative("Observer").GetEndProperty();
-                //Debug.Log(myClassProps.name);
-                //while (myClassProps.NextVisible(true))
-                //{
-                //    Debug.Log(myClassProps.name);
-                //    //if (myClassProps.name == "Observer")
-                //    //{
-                //    //    var myClassProps2 = myClassProps.GetArrayElementAtIndex(0);
-                //    //    while (myClassProps2.NextVisible(true))
-                //    //    {
-                //    //        Debug.Log(myClassProps2.name);
-                //    //    }
-                //    //        //        EditorGUI.LabelField(
-                //    //        //            new Rect(rect.x + totalWidth * 2, rect.y, totalWidth, EditorGUIUtility.singleLineHeight),
-                //    //        //            myClassProps.FindPropertyRelative("ObserverName").stringValue);
-                //    //}
-                //}
-
+                EditorGUI.LabelField(new Rect(widthSoFar, rect.y, standardWidth, EditorGUIUtility.singleLineHeight), entry.Observer.ObserverName);
+                widthSoFar += (standardWidth) + spacing;
             }
 
             EditorGUI.PropertyField(
-                new Rect(rect.x + totalWidth * 3, rect.y, totalWidth, EditorGUIUtility.singleLineHeight),
+                new Rect(widthSoFar, rect.y, standardWidth * 1.5f, EditorGUIUtility.singleLineHeight),
                 element.FindPropertyRelative("TypeOfEvent"), GUIContent.none);
+            widthSoFar += (standardWidth * 1.5f) + spacing;
 
-            
-            EditorGUI.PropertyField(
-                new Rect(rect.x + totalWidth * 4, rect.y, totalWidth, EditorGUIUtility.singleLineHeight),
-                element.FindPropertyRelative("TargetObject"), GUIContent.none); 
+            if (entry != null && entry.TypeOfEvent == TimedEventType.LookAtObject) {
+                EditorGUI.PropertyField(
+                new Rect(widthSoFar, rect.y, standardWidth * .75f, EditorGUIUtility.singleLineHeight),
+                element.FindPropertyRelative("TargetObject"), GUIContent.none);
+
+                widthSoFar += (standardWidth * .75f) + spacing;
+
+                if (entry != null && entry.TargetObject != null)
+                {
+                    EditorGUI.LabelField(new Rect(widthSoFar, rect.y, standardWidth, EditorGUIUtility.singleLineHeight), entry.TargetObject.TargetName);
+                    widthSoFar += (standardWidth) + spacing;
+                }
+            }
         };
     }
 

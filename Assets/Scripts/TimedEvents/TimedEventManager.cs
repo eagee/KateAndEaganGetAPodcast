@@ -20,13 +20,23 @@ public class TimedEventManager : MonoBehaviour {
             if(m_EventTimer > entry.TimeOffset && entry.Triggered == false)
             {
                 entry.Triggered = true;
-                if (entry.TypeOfEvent == TimedEventType.LookAtObject)
+                switch(entry.TypeOfEvent)
                 {
-                    entry.Observer.SendMessage("LookAtObject", entry.TargetObject);
-                }
-                else if (entry.TypeOfEvent == TimedEventType.LookRandom)
-                {
-                    entry.Observer.SendMessage("LookRandom");
+                    case TimedEventType.LookAtObject:
+                        entry.Observer.SendMessage("LookAtObject", entry.TargetObject.gameObject);
+                        break;
+                    case TimedEventType.LookRandom:
+                        entry.Observer.SendMessage("LookRandom");
+                        break;
+                    case TimedEventType.EmoteNormal:
+                        entry.Observer.SendMessage("EmoteNormal");
+                        break;
+                    case TimedEventType.EmoteAmusement:
+                        entry.Observer.SendMessage("EmoteAmusement");
+                        break;
+                    case TimedEventType.EmoteNonplussed:
+                        entry.Observer.SendMessage("EmoteNonplussed");
+                        break;
                 }
             }
         }

@@ -6,11 +6,11 @@ using UnityEngine;
 public class TimedEventEntry {
     public TimedEventObserver Observer;
     public float TimeOffset;
-    public GameObject TargetObject;
+    public TimedEventTarget TargetObject;
     public TimedEventType TypeOfEvent;
     public bool Triggered;
 
-    public TimedEventEntry(TimedEventObserver observer, float timeOffset, GameObject targetObject, TimedEventType typeOfEvent, bool triggered)
+    public TimedEventEntry(TimedEventObserver observer, float timeOffset, TimedEventTarget targetObject, TimedEventType typeOfEvent, bool triggered)
     {
         this.Observer = observer;
         this.TimeOffset = timeOffset;
