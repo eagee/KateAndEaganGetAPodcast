@@ -4,7 +4,7 @@ using UnityEngine;
 using Windows.Kinect;
 using System.IO;
 
-public class KinectKeyFramePlayer : KinectKeyFrameAnimation {
+public class KinectKeyFramePlayer : KinectKeyFrameAnimation, ITimedEventSync {
     public bool Loop = false;
     public bool PlayOnAwake = true;
     public string SortingLayer = "Default";
@@ -25,6 +25,16 @@ public class KinectKeyFramePlayer : KinectKeyFrameAnimation {
         {
             StopAnimation();
         }
+    }
+
+    /// <summary>
+    /// ITimedEventSync implementation, moves the keyframe index of this object to the nearest possible value 
+    /// to the specified time offset.
+    /// </summary>
+    /// <param name="timeOffset"></param>
+    public void MoveToTimeOffset(float timeOffset)
+    {
+        float m_keyFrameIndex = timeOffset / m_keyframeData.FrameSpeed;
     }
 
     void AssignSortingLayer()

@@ -19,7 +19,6 @@ public class TimedEventManagerEditor : Editor
                 serializedObject.FindProperty("EventEntries"),
                 true, true, true, true);
 
-
         m_events.drawElementBackgroundCallback = (Rect rect, int index, bool isActive, bool isFocused) =>
         {
             /// Set background color based on name of observer object (todo: refactor this so it's not so ugly, and perhaps configurable from editor)
@@ -27,7 +26,11 @@ public class TimedEventManagerEditor : Editor
             TimedEventEntry bgEntry = GetParent(element.FindPropertyRelative("Observer")) as TimedEventEntry;
             if (bgEntry != null && bgEntry.Observer != null)
             {
-                if (bgEntry.Observer.ObserverName.Contains("Eagan"))
+                if (isActive)
+                {
+                    EditorGUI.DrawRect(rect, Color.blue);
+                }
+                else if (bgEntry.Observer.ObserverName.Contains("Eagan"))
                 {
                     EditorGUI.DrawRect(rect, Color.white);
                 }
@@ -96,6 +99,17 @@ public class TimedEventManagerEditor : Editor
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
+
+        var lastElement = m_events.serializedProperty.GetArrayElementAtIndex(serializedObject.FindProperty("EventEntries").arraySize - 1);
+        if (lastElement != null)
+        {
+            TimedEventEntry entry = GetParent(lastElement.FindPropertyRelative("Observer")) as TimedEventEntry;
+            float timeOffset = entry != null ? entry .TimeOffset : 120;
+            GUILayout.Label("Starting Time Offset: (" + serializedObject.FindProperty("StartingTimeOffset").floatValue.ToString() + "/" + timeOffset.ToString() + ")", GUILayout.Width(260));
+            serializedObject.FindProperty("StartingTimeOffset").floatValue = GUILayout.HorizontalSlider(serializedObject.FindProperty("StartingTimeOffset").floatValue, 0f, timeOffset);
+            GUILayout.Space(10);
+        }
+        GUILayout.Label("Timed Events:", GUILayout.Width(90));
         m_events.DoLayoutList();
         serializedObject.ApplyModifiedProperties();
     }
