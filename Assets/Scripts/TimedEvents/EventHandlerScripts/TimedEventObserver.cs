@@ -28,4 +28,9 @@ public class TimedEventObserver: MonoBehaviour
 
     }
 
+    public void Activate()
+    {
+
+    }
+
 }

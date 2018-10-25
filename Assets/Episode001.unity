@@ -1199,10 +1199,10 @@ GameObject:
   m_Component:
   - component: {fileID: 287829111}
   - component: {fileID: 287829110}
-  - component: {fileID: 287829109}
   - component: {fileID: 287829112}
+  - component: {fileID: 287829109}
   m_Layer: 0
-  m_Name: Greyhound
+  m_Name: GreyhoundAnimation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1217,10 +1217,10 @@ Animator:
   m_GameObject: {fileID: 287829108}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a30587c660af25548992031a5f3d780e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -1279,11 +1279,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 287829108}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.48, y: -4.85, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 574030850}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &287829112
 MonoBehaviour:
@@ -2015,6 +2015,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &574030849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 574030850}
+  - component: {fileID: 574030851}
+  m_Layer: 0
+  m_Name: GreyhoundContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &574030850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 574030849}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 27.26, y: -4.47, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 287829111}
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &574030851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 574030849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32779317b9e4db04fac09a6004258a1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObserverName: Greyhound
+  TargetLocation: {fileID: 1450252223}
+  Speed: 0.35
 --- !u!1 &613998752
 GameObject:
   m_ObjectHideFlags: 0
@@ -4310,6 +4354,47 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!1 &1450252221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1450252223}
+  - component: {fileID: 1450252222}
+  m_Layer: 0
+  m_Name: GreyhoundTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1450252222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1450252221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae23b4f4ab3f818498a9de16dd0b3070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetName: StageRight
+--- !u!4 &1450252223
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1450252221}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -12.159999, y: -3.14, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1455929381
 Prefab:
   m_ObjectHideFlags: 0
@@ -5884,12 +5969,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fceda5bfc7e8ce4ea13de2e7f2da66a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingTimeOffset: 49.107143
+  StartingTimeOffset: 63.559315
   EventEntries:
   - Observer: {fileID: 1649631036}
     TimeOffset: 1
     TargetObject: {fileID: 0}
     TypeOfEvent: 1
+    Triggered: 0
+  - Observer: {fileID: 574030851}
+    TimeOffset: 12
+    TargetObject: {fileID: 1522162258}
+    TypeOfEvent: 5
     Triggered: 0
   - Observer: {fileID: 916445004}
     TimeOffset: 13
@@ -6027,7 +6117,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1810215880
 MonoBehaviour:

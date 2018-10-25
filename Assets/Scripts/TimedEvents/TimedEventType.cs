@@ -9,5 +9,6 @@ public enum TimedEventType
     LookRandom,
     EmoteNormal,
     EmoteAmusement,
-    EmoteNonplussed
+    EmoteNonplussed,
+    Activate
 }

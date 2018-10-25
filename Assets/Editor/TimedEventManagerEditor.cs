@@ -56,13 +56,13 @@ public class TimedEventManagerEditor : Editor
             float widthSoFar = rect.x;
 
             EditorGUI.PropertyField(
-                new Rect(rect.x, rect.y, standardWidth/2f, EditorGUIUtility.singleLineHeight),
+                new Rect(rect.x, rect.y, standardWidth / 2f, EditorGUIUtility.singleLineHeight),
                 element.FindPropertyRelative("TimeOffset"), GUIContent.none);
 
             widthSoFar += (standardWidth / 2f) + spacing;
 
             EditorGUI.PropertyField(
-                new Rect(widthSoFar, rect.y, standardWidth*.75f, EditorGUIUtility.singleLineHeight),
+                new Rect(widthSoFar, rect.y, standardWidth * .75f, EditorGUIUtility.singleLineHeight),
                 element.FindPropertyRelative("Observer"), GUIContent.none);
 
             widthSoFar += (standardWidth * .75f) + spacing;
@@ -80,7 +80,7 @@ public class TimedEventManagerEditor : Editor
                 element.FindPropertyRelative("TypeOfEvent"), GUIContent.none);
             widthSoFar += (standardWidth * 1.5f) + spacing;
 
-            if (entry != null && entry.TypeOfEvent == TimedEventType.LookAtObject) {
+            if (entry != null && entry.TypeOfEvent == TimedEventType.LookAtObject ) {
                 EditorGUI.PropertyField(
                 new Rect(widthSoFar, rect.y, standardWidth * .75f, EditorGUIUtility.singleLineHeight),
                 element.FindPropertyRelative("TargetObject"), GUIContent.none);
