@@ -54,6 +54,7 @@ public class KinectKeyFramePlayer : KinectKeyFrameAnimation, ITimedEventSync {
 
     public void PlayAnimation()
     {
+        BroadcastMessage("AnimationStarted");
         m_isActive = true;
     }
 

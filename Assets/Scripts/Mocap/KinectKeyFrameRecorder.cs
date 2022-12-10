@@ -84,5 +84,6 @@ public class KinectKeyFrameRecorder : KinectKeyFrameAnimation
         }
 
         File.WriteAllText(filePath, json);
+        Debug.Log("Finished writing key frame file to: " + filePath);
     }
 }

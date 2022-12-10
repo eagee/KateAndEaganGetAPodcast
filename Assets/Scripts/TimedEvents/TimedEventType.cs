@@ -10,5 +10,8 @@ public enum TimedEventType
     EmoteNormal,
     EmoteAmusement,
     EmoteNonplussed,
+    EmoteBemused,
+    EmotePregnantBlink,
     Activate
+    
 }

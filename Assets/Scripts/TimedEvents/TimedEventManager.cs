@@ -51,9 +51,16 @@ public class TimedEventManager : MonoBehaviour {
                     case TimedEventType.EmoteNonplussed:
                         entry.Observer.SendMessage("EmoteNonplussed");
                         break;
+                    case TimedEventType.EmoteBemused:
+                        entry.Observer.SendMessage("EmoteBemused");
+                        break;
                     case TimedEventType.Activate:
                         entry.Observer.SendMessage("Activate");
                         break;
+                    case TimedEventType.EmotePregnantBlink:
+                        entry.Observer.SendMessage("EmotePregnantBlink");
+                        break;
+                        
                 }
             }
         }

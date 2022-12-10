@@ -6,6 +6,7 @@ using CrazyMinnow.SALSA;
 [System.Serializable]
 public class TimedFaceEventObserver : TimedEventObserver
 {
+    public EmotionProperties BemusedProperties;
     public EmotionProperties NeutralProperties;
     public EmotionProperties HappyProperties;
     private Animator EyeLeft;
@@ -96,5 +97,28 @@ public class TimedFaceEventObserver : TimedEventObserver
         }
     }
 
+    new public void EmoteBemused()
+    {
+        if (EyeLeft)
+        {
+            EyeLeft.SetBool("Amused", false);
+        }
+        if (EyeRight)
+        {
+            EyeRight.SetBool("Amused", false);
+        }
+        if (Mouth)
+        {
+            Mouth.sayRestSprite = BemusedProperties.Resting;
+            Mouth.saySmallSprite = BemusedProperties.Small;
+            Mouth.sayMediumSprite = BemusedProperties.Medium;
+            Mouth.sayLargeSprite = BemusedProperties.Large;
+        }
+    }
+
+    new public void EmotePregnantBlink()
+    {
+        GetComponent<RandomEyes2D>().Blink(0.25f);
+    }
 
 };

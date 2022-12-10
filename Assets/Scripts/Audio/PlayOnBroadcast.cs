@@ -12,4 +12,9 @@ public class PlayOnBroadcast : MonoBehaviour {
         Player.PlayAnimation();
     }
 
+    void AnimationStarted()
+    {
+        Clip.Play();
+    }
+
 }

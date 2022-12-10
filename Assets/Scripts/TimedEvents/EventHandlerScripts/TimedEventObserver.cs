@@ -28,7 +28,17 @@ public class TimedEventObserver: MonoBehaviour
 
     }
 
+    public void EmoteBemused()
+    {
+
+    }
+
     public void Activate()
+    {
+
+    }
+
+    public void EmotePregnantBlink()
     {
 
     }
