@@ -107,6 +107,7 @@ public class TimedEventManagerEditor : Editor
             float timeOffset = entry != null ? entry .TimeOffset : 120;
             GUILayout.Label("Starting Time Offset: (" + serializedObject.FindProperty("StartingTimeOffset").floatValue.ToString() + "/" + timeOffset.ToString() + ")", GUILayout.Width(260));
             serializedObject.FindProperty("StartingTimeOffset").floatValue = GUILayout.HorizontalSlider(serializedObject.FindProperty("StartingTimeOffset").floatValue, 0f, timeOffset);
+            serializedObject.FindProperty("ShowTimerText").boolValue = GUILayout.Toggle(serializedObject.FindProperty("ShowTimerText").boolValue, " Show Time in Scene");
             GUILayout.Space(10);
         }
         GUILayout.Label("Timed Events:", GUILayout.Width(90));

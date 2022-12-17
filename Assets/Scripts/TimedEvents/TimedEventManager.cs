@@ -14,6 +14,7 @@ public class TimedEventManager : MonoBehaviour {
     public float StartingTimeOffset = 0f;
     public List<TimedEventEntry> EventEntries;
     private float m_EventTimer;
+    public bool ShowTimerText = false;
 
     private void Start()
     {
@@ -25,9 +26,18 @@ public class TimedEventManager : MonoBehaviour {
     }
 
     void Update()
-    {                            
+    {
         m_EventTimer += Time.deltaTime;
-        GetComponent<TextMesh>().text = m_EventTimer.ToString();
+
+        if (ShowTimerText)
+        {
+            GetComponent<TextMesh>().text = m_EventTimer.ToString();
+        }
+        else
+        {
+            GetComponent<TextMesh>().text = "";
+        }
+        
 
         foreach(var entry in EventEntries)
         {
