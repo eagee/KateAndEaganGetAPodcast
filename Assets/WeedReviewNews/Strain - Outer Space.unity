@@ -6236,7 +6236,7 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1810215875}
-  m_Text: 10.0
+  m_Text: 
   m_OffsetZ: 0
   m_CharacterSize: 0.25
   m_LineSpacing: 1
@@ -6291,7 +6291,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1810215875}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fceda5bfc7e8ce4ea13de2e7f2da66a, type: 3}
   m_Name: 
@@ -6358,6 +6358,7 @@ MonoBehaviour:
     TargetObject: {fileID: 66239148}
     TypeOfEvent: 2
     Triggered: 0
+  ShowTimerText: 0
 --- !u!4 &1810215879
 Transform:
   m_ObjectHideFlags: 0
